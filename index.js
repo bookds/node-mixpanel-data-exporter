@@ -21,7 +21,7 @@ var crypto = require('crypto')
 var mixpanel_exporter = function(args) {
     _.extend(this, {
         parsed_url: url.parse('http://mixpanel.com/api/2.0/', true)
-      , format: 'json'
+      // , format: 'json'
       , methods: mixpanel_methods
       , request: require('request')
     }, args)
@@ -57,7 +57,7 @@ mixpanel_exporter.prototype.generate_args = function(endpoint, _args) {
     var args = this.stringify_array(_.extend({
         api_key: this.api_key
       , expire: Date.now() + 1000
-      , format: this.format
+      // , format: this.format
     }, _args))
 
     var sorted_args = this.alphabetical_sort(args)
